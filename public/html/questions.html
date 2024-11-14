@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structural Integrity Analysis - Questions</title>
+    <link rel="stylesheet" href="../styles/questions.css"> <!-- Link to the external CSS file -->
+</head>
+<body>
+
+<div class="container">
+    <h1>Structural Integrity Analysis - Questions</h1>
+
+    <form id="questionForm" enctype="multipart/form-data">
+        <!-- Question 1 -->
+        <div class="question">
+            <label for="structureType">What type of structure is this?</label>
+            <select id="structureType" name="structureType">
+                <option value="Residential home">Residential home</option>
+                <option value="Apartment building">Apartment building</option>
+                <option value="Commercial property">Commercial property</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+            <label for="issueType">What kind of issue are you noticing?</label>
+            <select id="issueType" name="issueType">
+                <option value="Cracks in walls">Cracks in walls</option>
+                <option value="Water damage">Water damage</option>
+                <option value="Foundation issues">Foundation issues</option>
+                <option value="Roof damage">Roof damage</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="question">
+            <label for="issueSize">How large is the affected area?</label>
+            <select id="issueSize" name="issueSize">
+                <option value="Small (less than 6 inches)">Small (less than 6 inches)</option>
+                <option value="Medium (6 inches to 2 feet)">Medium (6 inches to 2 feet)</option>
+                <option value="Large (over 2 feet)">Large (over 2 feet)</option>
+            </select>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="question">
+            <label for="issueTime">When did you first notice this issue?</label>
+            <select id="issueTime" name="issueTime">
+                <option value="Within the last week">Within the last week</option>
+                <option value="1-3 months ago">1-3 months ago</option>
+                <option value="6 months to 1 year ago">6 months to 1 year ago</option>
+                <option value="Over a year ago">Over a year ago</option>
+            </select>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="question">
+            <label for="repairPreference">Do you prefer DIY suggestions or professional advice?</label>
+            <select id="repairPreference" name="repairPreference">
+                <option value="DIY repair advice">DIY repair advice</option>
+                <option value="Professional repair recommendation">Professional repair recommendation</option>
+                <option value="Both">Both</option>
+            </select>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="question">
+            <label for="imageUpload">Upload an Image</label>
+            <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="button" class="btn-submit" onclick="submitForm()">Submit and Analyze</button>
+    </form>
+</div>
+
+<script>
+    function submitForm() {
+        // Check if an image file is selected
+        const imageUpload = document.getElementById("imageUpload").files[0];
+        if (!imageUpload) {
+            alert("Please select an image file before submitting.");
+            return; // Stop form submission if no file is selected
+        }
+
+        // Save responses to localStorage
+        const formData = {
+            structureType: document.getElementById("structureType").value,
+            issueType: document.getElementById("issueType").value,
+            issueSize: document.getElementById("issueSize").value,
+            issueTime: document.getElementById("issueTime").value,
+            repairPreference: document.getElementById("repairPreference").value,
+        };
+        
+        localStorage.setItem("formData", JSON.stringify(formData));
+        
+        // Submit image and form data to the server
+        const formElement = document.getElementById("questionForm");
+        const formDataObj = new FormData(formElement);
+
+        fetch("upload.php", {
+            method: "POST",
+            body: formDataObj
+        })
+        .then(response => response.text())
+        .then(result => {
+            console.log("Image uploaded successfully:", result);
+            alert("Your responses and image have been submitted successfully!");
+            window.location.href = "results.html"; // Redirect to results page
+        })
+        .catch(error => {
+            console.error("Error uploading image:", error);
+            alert("There was an error uploading the image. Please try again.");
+        });
+    }
+</script>
+
+
+
+</body>
+</html>
