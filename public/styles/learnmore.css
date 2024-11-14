@@ -26,6 +26,7 @@ h1 {
     font-size: 24px;
     color: #333;
     margin-bottom: 15px;
+    text-decoration: underline; /* Underline for "Learn More About Our AI Analysis" */
 }
 
 p {
@@ -40,6 +41,7 @@ h2 {
     color: #333;
     margin-top: 25px;
     margin-bottom: 15px;
+    text-decoration: underline; /* Underline for "How It Works" and "Why Choose Our Analysis Tool?" */
 }
 
 /* Benefits section with background and spacing */
