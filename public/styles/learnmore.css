@@ -6,21 +6,28 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+    padding: 0; /* Ensure no padding on the body */
     background: linear-gradient(135deg, #f0f4f8, #dbe4ed);
-    padding: 10px;
     line-height: 1.5;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
     text-align: center;
     background-color: #ffffff;
-    padding: 40px;
+    padding: 40px 20px;
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 600px;
+    max-width: 390px;
     box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0; /* Ensure no margin on the container */
 }
+
 
 h1 {
     font-size: 24px;
@@ -71,7 +78,7 @@ h2 {
 }
 
 .btn-go-back {
-    padding: 10px 25px;
+    padding: 12px 30px;
     font-size: 16px;
     color: #ffffff;
     background-color: #007bff;
@@ -91,6 +98,7 @@ h2 {
 @media (max-width: 600px) {
     .container {
         padding: 20px;
+        min-height: 95vh; /* Takes up nearly full screen height on mobile */
     }
 
     h1 {

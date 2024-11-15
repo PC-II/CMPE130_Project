@@ -1,3 +1,4 @@
+/* Basic styling */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -5,28 +6,40 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f0f4f8;
+    padding: 0; /* Ensure no padding on the body */
+    background: linear-gradient(135deg, #f0f4f8, #dbe4ed);
+    line-height: 1.5;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
-    width: 90%;
-    max-width: 600px;
+    text-align: center;
     background-color: #ffffff;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: left;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 390px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0; /* Ensure no margin on the container */
 }
+
 
 h1 {
     font-size: 24px;
     color: #333;
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    text-decoration: underline;
 }
 
+/* Form styling */
 .question {
     margin-bottom: 20px;
+    text-align: left;
 }
 
 .question label {
@@ -40,14 +53,25 @@ h1 {
 .question input[type="text"],
 .question input[type="file"] {
     width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    font-size: 16px;
-    border-radius: 5px;
+    padding: 12px;
+    font-size: 15px;
+    color: #333;
+    border-radius: 8px;
     border: 1px solid #ccc;
+    background-color: #f9f9fc;
     box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
+.question select:focus,
+.question input[type="text"]:focus,
+.question input[type="file"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    outline: none;
+}
+
+/* Button styling */
 .btn-submit {
     width: 100%;
     padding: 12px;
@@ -55,24 +79,26 @@ h1 {
     color: #ffffff;
     background-color: #007bff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
 }
 
 .btn-submit:hover {
     background-color: #0056b3;
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
-/* Responsive design for smaller screens */
-@media (max-width: 600px) {
+/* Specific adjustments for iPhone 12 Pro dimensions */
+@media (max-width: 390px) and (max-height: 844px) {
     .container {
-        padding: 20px;
+        padding: 30px 15px;
+        min-height: 100vh;
     }
 
     h1 {
-        font-size: 20px;
+        font-size: 22px;
     }
 
     .question label {
@@ -83,7 +109,7 @@ h1 {
     .question input[type="text"],
     .question input[type="file"] {
         font-size: 14px;
-        padding: 8px;
+        padding: 10px;
     }
 
     .btn-submit {

@@ -6,104 +6,152 @@ body {
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+    padding: 0; /* Ensure no padding on the body */
     background: linear-gradient(135deg, #f0f4f8, #dbe4ed);
+    line-height: 1.5;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 .container {
     text-align: center;
     background-color: #ffffff;
-    padding: 40px; /* Adjusted padding for better spacing on mobile */
+    padding: 40px 20px;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    width: 95%;
-    max-width: 700px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 390px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0; /* Ensure no margin on the container */
 }
 
+
 h1 {
-    font-size: 26px;
+    font-size: 24px;
     color: #333;
     margin-bottom: 15px;
-    text-decoration: underline; /* Underline for "Structural Integrity Analysis" */
+    text-decoration: underline; /* Underline for "Learn More About Our AI Analysis" */
 }
 
 p {
-    font-size: 18px; /* Increased font size for readability */
+    font-size: 15px;
     color: #666;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    padding: 0 10px;
 }
 
+h2 {
+    font-size: 20px;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    text-decoration: underline; /* Underline for "How It Works" and "Why Choose Our Analysis Tool?" */
+}
+
+/* Benefits section with background and spacing */
 .benefits {
-    font-size: 16px;
+    font-size: 15px;
     color: #555;
-    margin-top: 15px;
     list-style-type: none;
-    padding: 0;
+    padding: 15px;
+    margin-top: 15px;
+    line-height: 1.5;
+    background-color: #f9f9fc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .benefits li {
-    margin: 12px 0;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    margin: 10px 0;
 }
 
 .benefits li::before {
     content: "✔️";
-    margin-right: 8px;
-    color: #007bff;
+    color: #5a5ff7;
+    font-size: 1.2em;
+    margin-right: 12px; /* Slightly more space between checkmark and text */
+    width: 25px; /* Increased width for consistent alignment */
+    text-align: center;
+    flex-shrink: 0;
 }
 
-.btn-begin {
-    padding: 14px 30px;
-    font-size: 18px;
+.benefits li span {
+    line-height: 1.5;
+}
+
+
+
+.benefits li div {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    line-height: 1.5; /* Ensures multi-line text aligns with the top */
+}
+
+
+
+.btn-go-back {
+    width: 100%; /* Button takes up full width */
+    padding: 14px;
+    font-size: 16px;
     color: #ffffff;
-    background-color: #007bff;
+    background-color: #28a745; /* Green background */
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
+    margin-top: 25px;
 }
 
-.btn-begin:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
+.btn-go-back:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.03);
+}
+
+/* Specific adjustments for iPhone 12 Pro dimensions */
+@media (max-width: 390px) and (max-height: 844px) {
+    .container {
+        padding: 30px 15px;
+        min-height: 100vh; /* Ensures it takes up full height on iPhone 12 Pro */
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p, .benefits li {
+        font-size: 14px;
+    }
+
+    .btn-go-back {
+        font-size: 15px;
+        padding: 12px;
+    }
 }
 
 .learn-more {
     display: inline-block;
-    margin-top: 15px;
+    padding: 8px 15px; /* Adds padding around the text */
     font-size: 14px;
     color: #007bff;
     text-decoration: none;
+    border: 2px solid #007bff; /* Blue border */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
 }
 
 .learn-more:hover {
-    text-decoration: underline;
-}
-
-/* Responsive design for smaller screens */
-@media (max-width: 600px) {
-    .container {
-        padding: 20px;
-    }
-
-    h1 {
-        font-size: 22px; /* Reduced font size for smaller screens */
-    }
-
-    p {
-        font-size: 16px; /* Adjusted for readability on smaller screens */
-    }
-
-    .benefits li {
-        font-size: 14px;
-    }
-
-    .btn-begin {
-        font-size: 16px;
-        padding: 12px 24px; /* Reduced padding to fit mobile screens */
-    }
-
-    .learn-more {
-        font-size: 12px;
-    }
+    background-color: #007bff; /* Blue background on hover */
+    color: #ffffff; /* White text on hover */
+    text-decoration: none;
 }
