@@ -12,20 +12,19 @@ body {
 .container {
     text-align: center;
     background-color: #ffffff;
-    padding: 60px; /* Increased padding for more spacing */
+    padding: 40px; /* Adjusted padding for better spacing on mobile */
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    width: 95%; /* Increased width */
-    max-width: 700px; /* Increased max-width for a larger container */
+    width: 95%;
+    max-width: 700px;
 }
 
 h1 {
     font-size: 26px;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     text-decoration: underline; /* Underline for "Structural Integrity Analysis" */
 }
-
 
 p {
     font-size: 18px; /* Increased font size for readability */
@@ -34,7 +33,7 @@ p {
 }
 
 .benefits {
-    font-size: 16px; /* Increased font size */
+    font-size: 16px;
     color: #555;
     margin-top: 15px;
     list-style-type: none;
@@ -54,8 +53,8 @@ p {
 }
 
 .btn-begin {
-    padding: 14px 30px; /* Increased padding for a larger button */
-    font-size: 18px; /* Increased font size */
+    padding: 14px 30px;
+    font-size: 18px;
     color: #ffffff;
     background-color: #007bff;
     border: none;
@@ -72,7 +71,6 @@ p {
 .learn-more {
     display: inline-block;
     margin-top: 15px;
-    margin-left: 20px; /* Add space to move the link to the right */
     font-size: 14px;
     color: #007bff;
     text-decoration: none;
@@ -80,4 +78,32 @@ p {
 
 .learn-more:hover {
     text-decoration: underline;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px; /* Reduced font size for smaller screens */
+    }
+
+    p {
+        font-size: 16px; /* Adjusted for readability on smaller screens */
+    }
+
+    .benefits li {
+        font-size: 14px;
+    }
+
+    .btn-begin {
+        font-size: 16px;
+        padding: 12px 24px; /* Reduced padding to fit mobile screens */
+    }
+
+    .learn-more {
+        font-size: 12px;
+    }
 }
