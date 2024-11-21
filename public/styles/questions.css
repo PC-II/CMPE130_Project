@@ -76,18 +76,19 @@ h1 {
     width: 100%;
     padding: 12px;
     font-size: 16px;
-    color: #ffffff;
-    background-color: #007bff;
+    color: #ffffff; /* White text for contrast */
+    background-color: #28a745; /* Green background */
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     margin-top: 20px;
+    font-weight: bold; /* Bold text for emphasis */
 }
 
 .btn-submit:hover {
-    background-color: #0056b3;
-    transform: scale(1.03);
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.03); /* Slightly larger on hover */
 }
 
 /* Specific adjustments for iPhone 12 Pro dimensions */
@@ -116,4 +117,39 @@ h1 {
         font-size: 14px;
         padding: 10px;
     }
+}
+
+.top-left {
+    text-align: left;
+    margin-bottom: 15px; /* Add space between the button and the form title */
+}
+
+.top-left button {
+    display: inline-flex; /* Align text and arrow horizontally */
+    align-items: center; /* Vertically center-align the arrow and text */
+    gap: 6px; /* Add space between the arrow and text */
+    background-color: #f9f9fc; /* Match the form input background */
+    border: 1px solid #ccc; /* Subtle border */
+    padding: 10px 16px; /* Adjust padding for better size */
+    font-size: 15px; /* Font size to match the form labels */
+    font-weight: 500; /* Slightly bold font */
+    color: #333; /* Neutral text color */
+    border-radius: 8px; /* Rounded corners to match form fields */
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+}
+
+.top-left button:hover {
+    background-color: #e6ebf1; /* Slightly darker background on hover */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle shadow on hover */
+}
+
+.top-left button:active {
+    background-color: #dbe4ed; /* Even darker background when active */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Inset shadow for pressed effect */
+}
+
+.top-left button svg {
+    width: 16px; /* Proportional size for the arrow icon */
+    height: 16px;
 }

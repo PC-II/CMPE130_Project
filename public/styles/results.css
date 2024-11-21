@@ -1,0 +1,163 @@
+/* General styling for the body */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0; /* Ensure no padding on the body */
+    background: linear-gradient(135deg, #f0f4f8, #dbe4ed);
+    line-height: 1.5;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  /* Container styling */
+  .container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 390px;
+    box-sizing: border-box;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add consistent spacing between sections */
+    justify-content: flex-start; /* Align content to the top */
+    margin: 0; /* Ensure no margin on the container */
+  }
+  
+  /* User Input Section */
+  .user-input {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    background-color: #f9f9fc;
+    box-sizing: border-box;
+    width: 100%; /* Fit the content fully */
+  }
+  
+  .user-input strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .user-input p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0; /* Remove unnecessary extra margin */
+  }
+  
+  /* AI Response Section */
+  .ai-response {
+    padding: 20px;
+    border: 1px solid #28a745;
+    border-radius: 12px;
+    background-color: #e9f7ec;
+    box-sizing: border-box;
+    width: 100%; /* Ensure the response fills the border */
+  }
+  
+  .ai-response strong {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #28a745;
+  }
+  
+  .ai-response p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #333;
+    margin: 0 0 10px; /* Add spacing between paragraphs */
+  }
+  
+  .ai-response ul {
+    padding-left: 20px; /* Indent bullet points */
+    margin: 10px 0; /* Add space above and below list */
+  }
+  
+  .ai-response ul li {
+    margin-bottom: 8px; /* Add space between list items */
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  
+  .ai-response .note {
+    margin-top: 15px;
+    font-style: italic;
+    color: #555;
+  }
+  
+  /* Button styling */
+  .btn-submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    color: #ffffff; /* White text for contrast */
+    background-color: #28a745; /* Green background */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+    font-weight: bold; /* Bold text for emphasis */
+  }
+  
+  .btn-submit:hover {
+    background-color: #218838; /* Darker green on hover */
+    transform: scale(1.03); /* Slightly larger on hover */
+  }
+  
+  /* Specific adjustments for iPhone 12 Pro dimensions */
+  @media (max-width: 390px) and (max-height: 844px) {
+    .container {
+      padding: 30px 15px;
+      min-height: 100vh;
+      max-width: 100%; /* Ensure the container takes the full width */
+    }
+  
+    .user-input,
+    .ai-response {
+      padding: 15px; /* Reduce padding for smaller screens */
+    }
+  
+    .user-input strong,
+    .ai-response strong {
+      font-size: 16px; /* Slightly smaller font size */
+    }
+  
+    .user-input p,
+    .ai-response p,
+    .ai-response ul li {
+      font-size: 14px; /* Smaller font for better readability */
+      line-height: 1.4;
+    }
+  
+    .btn-submit {
+      font-size: 14px;
+      padding: 10px;
+    }
+  }
+  
+  .btn-check-another {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .btn-check-another:hover {
+    background-color: #0056b3;
+  }

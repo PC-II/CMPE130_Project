@@ -9,13 +9,22 @@
 <body>
 
 <div class="container">
+    <div class="top-left">
+        <button onclick="window.location.href='index.html'">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back
+        </button>
+    </div>
     <h1>Structural Integrity Analysis - Questions</h1>
 
     <form id="questionForm" enctype="multipart/form-data">
         <!-- Question 1 -->
         <div class="question">
             <label for="structureType">What type of structure is this?</label>
-            <select id="structureType" name="structureType">
+            <select id="structureType" name="structureType" required>
+                <option value="">Select one</option>
                 <option value="Residential home">Residential home</option>
                 <option value="Apartment building">Apartment building</option>
                 <option value="Commercial property">Commercial property</option>
@@ -26,7 +35,8 @@
         <!-- Question 2 -->
         <div class="question">
             <label for="issueType">What kind of issue are you noticing?</label>
-            <select id="issueType" name="issueType">
+            <select id="issueType" name="issueType" required>
+                <option value="">Select one</option>
                 <option value="Cracks in walls">Cracks in walls</option>
                 <option value="Water damage">Water damage</option>
                 <option value="Foundation issues">Foundation issues</option>
@@ -38,7 +48,8 @@
         <!-- Question 3 -->
         <div class="question">
             <label for="issueSize">How large is the affected area?</label>
-            <select id="issueSize" name="issueSize">
+            <select id="issueSize" name="issueSize" required>
+                <option value="">Select one</option>
                 <option value="Small (less than 6 inches)">Small (less than 6 inches)</option>
                 <option value="Medium (6 inches to 2 feet)">Medium (6 inches to 2 feet)</option>
                 <option value="Large (over 2 feet)">Large (over 2 feet)</option>
@@ -48,7 +59,8 @@
         <!-- Question 4 -->
         <div class="question">
             <label for="issueTime">When did you first notice this issue?</label>
-            <select id="issueTime" name="issueTime">
+            <select id="issueTime" name="issueTime" required>
+                <option value="">Select one</option>
                 <option value="Within the last week">Within the last week</option>
                 <option value="1-3 months ago">1-3 months ago</option>
                 <option value="6 months to 1 year ago">6 months to 1 year ago</option>
@@ -59,7 +71,8 @@
         <!-- Question 5 -->
         <div class="question">
             <label for="repairPreference">Do you prefer DIY suggestions or professional advice?</label>
-            <select id="repairPreference" name="repairPreference">
+            <select id="repairPreference" name="repairPreference" required>
+                <option value="">Select one</option>
                 <option value="DIY repair advice">DIY repair advice</option>
                 <option value="Professional repair recommendation">Professional repair recommendation</option>
                 <option value="Both">Both</option>
@@ -72,12 +85,54 @@
             <input type="file" id="imageUpload" name="imageUpload" accept="image/*" required>
         </div>
 
+        <!-- Image Preview -->
+        <div id="imagePreviewContainer">
+            <img id="imagePreview" src="" alt="Image Preview" style="display: none; max-width: 100%; margin-top: 20px; border: 1px solid #ccc; border-radius: 8px;" />
+        </div>
+
         <!-- Submit Button -->
         <button type="button" class="btn-submit" id="analyze">Submit and Analyze</button>
     </form>
 </div>
 
+<script>
+    function saveInputs() {
+        sessionStorage.setItem("user-structureType", document.getElementById("structureType").value);
+        sessionStorage.setItem("user-issueType", document.getElementById("issueType").value);
+        sessionStorage.setItem("user-issueSize", document.getElementById("issueSize").value);
+        sessionStorage.setItem("user-issueTime", document.getElementById("issueTime").value);
+        sessionStorage.setItem("user-repairPreference", document.getElementById("repairPreference").value);
+
+        window.location.href = "results.html";
+    }
+</script>
+
+<!-- Image Preview Script -->
+<script>
+    document.getElementById('imageUpload').addEventListener('change', function (event) {
+        const imagePreview = document.getElementById('imagePreview');
+        const file = event.target.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                imagePreview.src = e.target.result;
+                imagePreview.style.display = 'block'; // Show the image
+            };
+
+            reader.readAsDataURL(file); // Convert the file to a data URL
+        } else {
+            imagePreview.style.display = 'none'; // Hide the image if no file is selected
+            imagePreview.src = ''; // Clear the src attribute
+        }
+    });
+</script>
+
+<!-- Submit Logic -->
 <script src="./scripts/submit.js"></script>
 
 </body>
 </html>
+
+
