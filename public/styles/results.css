@@ -47,10 +47,11 @@ body {
     color: #555;
   }
   
-  .user-input p {
+  .user-input pre {
     font-size: 16px;
     line-height: 1.6;
     margin: 0; /* Remove unnecessary extra margin */
+    text-align: left;
   }
   
   /* AI Response Section */
@@ -70,11 +71,12 @@ body {
     color: #28a745;
   }
   
-  .ai-response p {
+  .ai-response pre {
     font-size: 16px;
     line-height: 1.6;
     color: #333;
     margin: 0 0 10px; /* Add spacing between paragraphs */
+    text-align: left;
   }
   
   .ai-response ul {

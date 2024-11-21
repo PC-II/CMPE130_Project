@@ -2,14 +2,41 @@ import { model } from "./firebase.js";
 
 document.getElementById("analyze").addEventListener('click', async (e) => {
   e.preventDefault();
-  const imageUpload = document.getElementById("imageUpload").files[0];
-  if (!imageUpload) {
+  const imageUpload = document.getElementById("imageUpload");
+  const imageFile = imageUpload.files[0];
+  if (!imageFile) {
+    imageUpload.setAttribute('style', 'outline: 2px solid red');
     alert("Please select an image file before submitting.");
     return; // Stop form submission if no file is selected
   }
+  else
+  {
+    imageUpload.setAttribute('style', 'outline: 2px solid green');
+  }
+
+  const responses = document.querySelectorAll('select');
+  let allResponded = true;
+  responses.forEach(response => {
+    console.log(response.value);
+    if(response.value == '')
+    {
+      allResponded = false;
+      response.setAttribute('style', 'outline: 2px solid red');
+    }
+    else
+    {
+      response.setAttribute('style', 'outline: 2px solid green');
+    }
+  });
+  if(!allResponded)
+  {
+    alert("Answer all questions before submitting.");
+    return;
+  }
 
   // save the responses to the questions
-  const responses = document.querySelectorAll('select');
+  const userInput = `1. Structure Type: ${responses[0].value}\n2. Issue: ${responses[1].value}\n3. Affected Area: ${responses[2].value}\n4. Noticed: ${responses[3].value}\n5. DIY or Professional: ${responses[4].value}`
+  sessionStorage.setItem("user-input", userInput);
 
   const prompt = `You are an ai assistant that helps users identify structural integrity issues within a picture that is being shown to you.
   Based on the picture being shown, you are going to give a recommendation for the user to approach their issue.
@@ -18,7 +45,7 @@ document.getElementById("analyze").addEventListener('click', async (e) => {
   The user was asked if they prefer DIY repair advice or professional advice from you and they chose ${responses[4].value}.
   Give a response based on these factors and be sure to add a note at the end that states your advice should always be cross-checked with a professional.`;
 
-  await run(imageUpload, prompt);
+  await run(imageFile, prompt);
 
   window.location.href = "results.html";
 });

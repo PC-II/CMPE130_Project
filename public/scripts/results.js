@@ -15,7 +15,7 @@
   \************************/
 /***/ (() => {
 
-eval("const response = sessionStorage.getItem(\"ai-response\");\r\n\r\nconsole.log(response);\n\n//# sourceURL=webpack://cmpe130_project/./src/results.js?");
+eval("// On page load, populate the content from sessionStorage\r\nwindow.onload = function () {\r\n  const aiResponse = sessionStorage.getItem(\"ai-response\");\r\n  const userInput = sessionStorage.getItem(\"user-input\");\r\n\r\n  // Display the AI response\r\n  const aiResponseElement = document.getElementById(\"aiResponse\");\r\n  if (aiResponse) {\r\n    aiResponseElement.innerHTML = aiResponse;\r\n  } else {\r\n    aiResponseElement.innerHTML = \"No AI response received. Please try again.\";\r\n  }\r\n\r\n  \r\n\r\n  // Display the user input\r\n  const userInputElement = document.getElementById(\"userInputContent\");\r\n  if (userInput) {\r\n    userInputElement.innerHTML = userInput;\r\n  } else {\r\n    userInputElement.innerHTML = \"Here's the AI summary.\";\r\n  }\r\n\r\n  // Add event listener to \"Check Another Image\" button\r\n  const checkAnotherButton = document.getElementById(\"checkAnother\");\r\n  checkAnotherButton.addEventListener(\"click\", function () {\r\n    window.location.href = \"questions.html\";\r\n  });\r\n};\n\n//# sourceURL=webpack://cmpe130_project/./src/results.js?");
 
 /***/ })
 
