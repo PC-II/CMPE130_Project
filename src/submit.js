@@ -17,7 +17,6 @@ document.getElementById("analyze").addEventListener('click', async (e) => {
   const responses = document.querySelectorAll('select');
   let allResponded = true;
   responses.forEach(response => {
-    console.log(response.value);
     if(response.value == '')
     {
       allResponded = false;
