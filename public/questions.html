@@ -39,7 +39,7 @@
                 <option value="">Select one</option>
                 <option value="Cracks in walls">Cracks in walls</option>
                 <option value="Water damage">Water damage</option>
-                <option value="Foundation issues">Foundation issues</option>
+                <option value="Foundation issues">Foundation</option>
                 <option value="Roof damage">Roof damage</option>
                 <option value="Other">Other</option>
             </select>
@@ -90,44 +90,17 @@
             <img id="imagePreview" src="" alt="Image Preview" style="display: none; max-width: 100%; margin-top: 20px; border: 1px solid #ccc; border-radius: 8px;" />
         </div>
 
+        <div class="waiting-balls hidden">
+            <div class="load l1"></div>
+            <div class="load l2"></div>
+            <div class="load l3"></div>
+        </div>
+
         <!-- Submit Button -->
         <button type="button" class="btn-submit" id="analyze">Submit and Analyze</button>
     </form>
+
 </div>
-
-<script>
-    function saveInputs() {
-        sessionStorage.setItem("user-structureType", document.getElementById("structureType").value);
-        sessionStorage.setItem("user-issueType", document.getElementById("issueType").value);
-        sessionStorage.setItem("user-issueSize", document.getElementById("issueSize").value);
-        sessionStorage.setItem("user-issueTime", document.getElementById("issueTime").value);
-        sessionStorage.setItem("user-repairPreference", document.getElementById("repairPreference").value);
-
-        window.location.href = "results.html";
-    }
-</script>
-
-<!-- Image Preview Script -->
-<script>
-    document.getElementById('imageUpload').addEventListener('change', function (event) {
-        const imagePreview = document.getElementById('imagePreview');
-        const file = event.target.files[0];
-
-        if (file) {
-            const reader = new FileReader();
-
-            reader.onload = function (e) {
-                imagePreview.src = e.target.result;
-                imagePreview.style.display = 'block'; // Show the image
-            };
-
-            reader.readAsDataURL(file); // Convert the file to a data URL
-        } else {
-            imagePreview.style.display = 'none'; // Hide the image if no file is selected
-            imagePreview.src = ''; // Clear the src attribute
-        }
-    });
-</script>
 
 <!-- Submit Logic -->
 <script src="./scripts/submit.js"></script>

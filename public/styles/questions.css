@@ -77,13 +77,14 @@ h1 {
     padding: 12px;
     font-size: 16px;
     color: #ffffff; /* White text for contrast */
-    background-color: #28a745; /* Green background */
+    background: radial-gradient(farthest-corner at left, rgb(42, 192, 42), #28a745);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
     margin-top: 20px;
     font-weight: bold; /* Bold text for emphasis */
+    outline: 2px solid #28a745;
 }
 
 .btn-submit:hover {
@@ -152,4 +153,46 @@ h1 {
 .top-left button svg {
     width: 16px; /* Proportional size for the arrow icon */
     height: 16px;
+}
+
+.hidden
+{
+  max-height: 0px;
+  transition: max-height ease 250ms;
+  opacity: 0;
+}
+.waiting-balls
+{
+  max-height: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin: 10px;
+}
+.waiting-balls div
+{
+  height: 30px;
+  width: 30px;
+  background: silver;
+  margin: 30px 10px;
+  border-radius: 100%;
+}
+.load
+{
+  animation: load 1000ms linear;
+  animation-iteration-count: infinite;
+}
+.load.l2
+{
+  animation-delay: 250ms;
+}
+.load.l3
+{
+  animation-delay: 500ms;
+}
+@keyframes load {
+    0%, 100% {transform: translateY(0px)}
+    25%, 75%  {transform: translateY(-10px)}
+    50% {transform: translateY(-12px)}
 }

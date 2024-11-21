@@ -96,16 +96,18 @@ h2 {
 
 
 .btn-go-back {
-    width: 100%; /* Button takes up full width */
-    padding: 14px;
+    width: 100%;
+    padding: 12px;
     font-size: 16px;
-    color: #ffffff;
-    background-color: #28a745; /* Green background */
+    color: #ffffff; /* White text for contrast */
+    background: radial-gradient(farthest-corner at left, rgb(42, 192, 42), #28a745);
     border: none;
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s;
-    margin-top: 25px;
+    margin-top: 20px;
+    font-weight: bold; /* Bold text for emphasis */
+    outline: 2px solid #28a745;
 }
 
 .btn-go-back:hover {
