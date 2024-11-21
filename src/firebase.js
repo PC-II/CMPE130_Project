@@ -14,7 +14,7 @@ export const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const vertexAI = getVertexAI(app);
-export const model = getGenerativeModel(vertexAI, {model: "gemini-1.0-pro-vision-001"});
+export const model = getGenerativeModel(vertexAI, {model: "gemini-1.5-pro"});
 export const auth = initializeAuth(app);
 
 // not sure if were going to use this yet - to track user history

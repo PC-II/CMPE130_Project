@@ -1,6 +1,8 @@
 // On page load, populate the content from sessionStorage
 window.onload = function () {
   const aiResponse = sessionStorage.getItem("ai-response");
+  const totalTokens = sessionStorage.getItem('total-tokens');
+  const totalBillableCharacters = sessionStorage.getItem('total-billable-characters');
   const userInput = sessionStorage.getItem("user-input");
 
   const imageBase64 = sessionStorage.getItem("imageBase64");
@@ -30,4 +32,14 @@ window.onload = function () {
   checkAnotherButton.addEventListener("click", function () {
     window.location.href = "questions.html";
   });
+
+  // cost information printed to the console
+  const textInputCost = totalBillableCharacters * 0.0000003125;
+  const textOutputCost = aiResponse.length * 0.00000125;
+  console.log(`Total Tokens: ${totalTokens}`);
+  console.log(`Total Billable Input Characters: ${totalBillableCharacters} x $0.0000003125 = $${textInputCost}`);
+  console.log(`1 Image = $0.00032875`);
+  console.log(`Total Billable Output Characters: ${aiResponse.length} x $0.00000125 = $${textOutputCost}`);
+  console.log(`----------------------------------------------`);
+  console.log(`Approx. Total Cost = $${textInputCost + textOutputCost + 0.00032875}`);
 };
