@@ -55,8 +55,10 @@ const fileToGenerativePart = async (file) => {
     reader.onloadend = () => resolve(reader.result.split(',')[1]);
     reader.readAsDataURL(file);
   });
+  const base64EncodedData = await base64EncodedDataPromise;
+  sessionStorage.setItem('imageBase64', base64EncodedData);
   return {
-    inlineData: {data: await base64EncodedDataPromise, mimeType: file.type}
+    inlineData: {data: base64EncodedData, mimeType: file.type}
   }
 }
 

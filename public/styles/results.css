@@ -52,6 +52,7 @@ body {
     line-height: 1.6;
     margin: 0; /* Remove unnecessary extra margin */
     text-align: left;
+    text-wrap: wrap;
   }
   
   /* AI Response Section */
@@ -77,6 +78,7 @@ body {
     color: #333;
     margin: 0 0 10px; /* Add spacing between paragraphs */
     text-align: left;
+    text-wrap: wrap;
   }
   
   .ai-response ul {

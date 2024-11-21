@@ -3,6 +3,12 @@ window.onload = function () {
   const aiResponse = sessionStorage.getItem("ai-response");
   const userInput = sessionStorage.getItem("user-input");
 
+  const imageBase64 = sessionStorage.getItem("imageBase64");
+
+  // // Display the Image
+  const imageElem = document.querySelector('.image-upload');
+  imageElem.src = `data:image/png;base64,${imageBase64}`;
+
   // Display the AI response
   const aiResponseElement = document.getElementById("aiResponse");
   if (aiResponse) {
@@ -10,8 +16,6 @@ window.onload = function () {
   } else {
     aiResponseElement.innerHTML = "No AI response received. Please try again.";
   }
-
-  
 
   // Display the user input
   const userInputElement = document.getElementById("userInputContent");
